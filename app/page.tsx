@@ -228,12 +228,12 @@ export default async function Home() {
               for your innovation journey.
             </p>
 
-            <button
-              type="button"
-              className="mt-6 rounded-xl bg-[#101827] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#1c2738]"
-            >
-              Start conversation
-            </button>
+            <Link
+  href="/assistant"
+  className="mt-6 inline-flex rounded-xl bg-[#101827] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#1c2738]"
+>
+  Start conversation
+</Link>
 
           </div>
 

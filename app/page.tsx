@@ -48,13 +48,18 @@ export default async function Home() {
   const firstName =
     fullName.split(" ")[0] || "Innovator";
 
-  const role = profile?.role ?? "user";
+  const role =
+    profile?.role ?? "user";
 
   // =========================================================
   // 4. ROLE PERMISSIONS
   // =========================================================
-  const isSuperAdmin = role === "super_admin";
-  const isAdmin = role === "admin" || isSuperAdmin;
+  const isSuperAdmin =
+    role === "super_admin";
+
+  const isAdmin =
+    role === "admin" ||
+    isSuperAdmin;
 
   // =========================================================
   // 5. HUMAN-READABLE ROLE NAME
@@ -67,7 +72,8 @@ export default async function Home() {
     super_admin: "Super Admin",
   };
 
-  const roleLabel = roleLabels[role] ?? "User";
+  const roleLabel =
+    roleLabels[role] ?? "User";
 
   // =========================================================
   // 6. INNOVATION JOURNEY
@@ -97,7 +103,10 @@ export default async function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
           {/* BRAND */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="flex items-center gap-3"
+          >
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#101827] font-bold text-white">
               B
             </div>
@@ -129,11 +138,13 @@ export default async function Home() {
                   </span>
                 )}
 
-                {!isSuperAdmin && role === "admin" && (
-                  <span className="rounded-full bg-slate-700 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
-                    Admin
-                  </span>
-                )}
+                {!isSuperAdmin &&
+                  role === "admin" && (
+                    <span className="rounded-full bg-slate-700 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
+                      Admin
+                    </span>
+                  )}
+
               </div>
 
               <p className="mt-1 text-xs text-slate-500">
@@ -142,7 +153,9 @@ export default async function Home() {
             </div>
 
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-sm font-semibold text-slate-700">
-              {firstName.charAt(0).toUpperCase()}
+              {firstName
+                .charAt(0)
+                .toUpperCase()}
             </div>
 
           </div>
@@ -212,7 +225,9 @@ export default async function Home() {
         ==================================================== */}
         <section className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 
-          {/* AI ASSISTANT */}
+          {/* =================================================
+              AI ASSISTANT
+          ================================================== */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#101827] text-lg font-semibold text-white">
@@ -228,16 +243,21 @@ export default async function Home() {
               for your innovation journey.
             </p>
 
-            <Link
-  href="/assistant"
-  className="mt-6 inline-flex rounded-xl bg-[#101827] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#1c2738]"
->
-  Start conversation
-</Link>
+            {/* IMPORTANT:
+                Native anchor forces direct navigation to /assistant.
+            */}
+            <a
+              href="/assistant"
+              className="mt-6 inline-flex cursor-pointer items-center justify-center rounded-xl bg-[#101827] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#1c2738]"
+            >
+              Start conversation
+            </a>
 
           </div>
 
-          {/* PROJECTS */}
+          {/* =================================================
+              PROJECTS
+          ================================================== */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-lg font-semibold text-slate-700">
@@ -262,7 +282,9 @@ export default async function Home() {
 
           </div>
 
-          {/* KNOWLEDGE */}
+          {/* =================================================
+              KNOWLEDGE
+          ================================================== */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-lg font-semibold text-slate-700">
@@ -317,14 +339,20 @@ export default async function Home() {
 
           <div className="mt-6 flex flex-wrap gap-2">
 
-            {innovationStages.map((stage, index) => (
-              <div
-                key={stage}
-                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-medium text-slate-600"
-              >
-                {index + 1}. {stage}
-              </div>
-            ))}
+            {innovationStages.map(
+              (
+                stage,
+                index
+              ) => (
+                <div
+                  key={stage}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-medium text-slate-600"
+                >
+                  {index + 1}.{" "}
+                  {stage}
+                </div>
+              )
+            )}
 
           </div>
 
@@ -380,7 +408,6 @@ export default async function Home() {
                 <div className="grid gap-3 sm:grid-cols-2 lg:w-[420px]">
 
                   <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-
                     <p className="text-sm font-semibold text-white">
                       Users
                     </p>
@@ -388,11 +415,9 @@ export default async function Home() {
                     <p className="mt-1 text-xs leading-5 text-slate-400">
                       Manage accounts and platform roles.
                     </p>
-
                   </div>
 
                   <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-
                     <p className="text-sm font-semibold text-white">
                       Knowledge
                     </p>
@@ -400,11 +425,9 @@ export default async function Home() {
                     <p className="mt-1 text-xs leading-5 text-slate-400">
                       Manage trusted knowledge resources.
                     </p>
-
                   </div>
 
                   <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-
                     <p className="text-sm font-semibold text-white">
                       AI Activity
                     </p>
@@ -412,11 +435,9 @@ export default async function Home() {
                     <p className="mt-1 text-xs leading-5 text-slate-400">
                       Review AI and platform activity.
                     </p>
-
                   </div>
 
                   <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-
                     <p className="text-sm font-semibold text-white">
                       System
                     </p>
@@ -424,7 +445,6 @@ export default async function Home() {
                     <p className="mt-1 text-xs leading-5 text-slate-400">
                       Monitor Bokhoni platform operations.
                     </p>
-
                   </div>
 
                 </div>
